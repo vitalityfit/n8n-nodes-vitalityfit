@@ -1,0 +1,65 @@
+{
+  "name": "n8n-nodes-vitalityfit",
+  "version": "0.1.0",
+  "description": "n8n node for the free Vitalityfit price API: compare prices of health products (medicines, supplements, cosmetics) from German online shops and pharmacies by name, PZN or EAN. No API key.",
+  "license": "MIT",
+  "homepage": "https://github.com/vitalityfit/n8n-nodes-vitalityfit#readme",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "vitalityfit",
+    "price-comparison",
+    "prices",
+    "pharmacy",
+    "health",
+    "pzn",
+    "ean",
+    "germany"
+  ],
+  "author": {
+    "name": "Xealti UG (haftungsbeschränkt)",
+    "email": "service@vitality-fit.de",
+    "url": "https://vitality-fit.de/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitalityfit/n8n-nodes-vitalityfit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vitalityfit/n8n-nodes-vitalityfit/issues",
+    "email": "service@vitality-fit.de"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "typecheck": "tsc --noEmit -p tsconfig.test.json",
+    "test": "vitest run",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [],
+    "nodes": [
+      "dist/nodes/Vitalityfit/Vitalityfit.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.54.6",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "release-it": "^21.1.0",
+    "typescript": "5.9.2",
+    "vitest": "^5.0.5"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

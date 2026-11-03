@@ -1,0 +1,10 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"incremental": false,
+		"declaration": false,
+		"sourceMap": false
+	},
+	"include": ["nodes/**/*", "nodes/**/*.json", "test/**/*", "package.json"]
+}
