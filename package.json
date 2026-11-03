@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-vitalityfit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n node for the free Vitalityfit price API: compare prices of health products (medicines, supplements, cosmetics) from German online shops and pharmacies by name, PZN or EAN. No API key.",
   "license": "MIT",
   "homepage": "https://github.com/vitalityfit/n8n-nodes-vitalityfit#readme",
@@ -41,7 +41,8 @@
     "prepublishOnly": "n8n-node prerelease"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/tsconfig.tsbuildinfo"
   ],
   "publishConfig": {
     "access": "public"

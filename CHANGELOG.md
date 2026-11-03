@@ -2,6 +2,12 @@
 
 All notable changes to this package are listed here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## 0.1.1
+
+- The package no longer ships the TypeScript build cache (`dist/tsconfig.tsbuildinfo`): 56 kB unpacked instead
+  of 165 kB. No change to the node.
+- Published through npm trusted publishing (GitHub Actions, no npm token), with provenance.
+
 ## 0.1.0
 
 First release.
