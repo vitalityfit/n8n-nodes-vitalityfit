@@ -1,0 +1,17 @@
+{
+	"node": "n8n-nodes-vitalityfit",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Utility", "Data & Storage"],
+	"alias": ["price", "price comparison", "pharmacy", "PZN", "EAN"],
+	"resources": {
+		"primaryDocumentation": [
+			{
+				"url": "https://www.npmjs.com/package/n8n-nodes-vitalityfit"
+			},
+			{
+				"url": "https://vitality-fit.de/api/#english"
+			}
+		]
+	}
+}
