@@ -1,0 +1,67 @@
+# Publishes n8n-nodes-vitalityfit to npm, with an npm provenance statement, when a version tag
+# such as 0.1.0 is pushed. Based on the publish.yml of n8n's node starter (@n8n/node-cli 0.54.6);
+# n8n requires community nodes to be published from GitHub Actions with provenance since May 1, 2026.
+#
+# `npm run release` (n8n-node release) sees GITHUB_ACTIONS and runs lint, build and
+# `npm publish` with NPM_CONFIG_PROVENANCE=true. Tests and the type check run first.
+#
+# npm authentication:
+#   - First release: npm cannot attach a trusted publisher to a package that does not exist yet, so
+#     store a short-lived granular npm token as the repository secret NPM_TOKEN.
+#   - After the first release: on npmjs.com, package settings > Trusted Publisher > GitHub Actions,
+#     owner "vitalityfit", repository "n8n-nodes-vitalityfit", workflow "publish.yml", allow
+#     `npm publish`. Then delete the NPM_TOKEN secret and revoke the token. With no NPM_TOKEN set,
+#     npm uses the GitHub OIDC token instead (needs npm 11.5.1 or later, which Node LTS ships).
+#
+# Tags have no "v" prefix and must equal the version in package.json.
+
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Mints the OIDC token for the provenance statement (and for trusted publishing).
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Check that the tag matches package.json
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          if [ "$GITHUB_REF_NAME" != "$version" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Release
+        # Lints, builds and publishes with provenance (n8n-node release in CI mode).
+        run: |
+          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm run release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
