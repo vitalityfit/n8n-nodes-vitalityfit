@@ -1,0 +1,36 @@
+{
+	"product_key": "ibuprofen-400-mg-apotheke-hilft-filmtabletten-pzn18228867",
+	"title": "Ibuprofen 400 mg die Apotheke Hilft Filmtabletten",
+	"url": "https://vitality-fit.de/p/ibuprofen-400-mg-apotheke-hilft-filmtabletten-pzn18228867/",
+	"disclosure": "Links marked affiliate are affiliate links; vitality-fit.de may earn a commission. Prices from German online shops, may have changed. No medical advice.",
+	"image_url": "https://static.vfstatic.net/product/de/ibuprofen-400-mg-apotheke-hilft-filmtabletten-pzn18228867/small/0/ibuprofen-400-mg-apotheke-hilft-filmtabletten-pzn18228867.jpg",
+	"compliance_notice": "Zu Risiken und Nebenwirkungen lesen Sie die Packungsbeilage und fragen Sie Ihren Arzt oder Apotheker.",
+	"pack": "20 st",
+	"shop_count": 2,
+	"offers": [
+		{
+			"shop": "Aponeo",
+			"price": 4.99,
+			"currency": "EUR",
+			"shipping_cost": 3.95,
+			"delivery_time": "in 1-2 Tagen lieferbar",
+			"in_stock": true,
+			"link": "https://www.awin1.com/pclick.php?p=35182925357&a=676781&m=15521",
+			"affiliate": true,
+			"shop_logo_url": "https://site.vfstatic.net/de/i/img_shops/aponeo_logo.webp",
+			"unit_price": { "value": 0.25, "per": "pcs" }
+		},
+		{
+			"shop": "Example Apotheke",
+			"price": 5.49,
+			"currency": "EUR",
+			"shipping_cost": null,
+			"delivery_time": null,
+			"in_stock": null,
+			"link": "https://example-apotheke.de/p/123",
+			"affiliate": false
+		}
+	],
+	"low_90d": 4.79,
+	"data_date": "2026-10-05T03:04:16.000Z"
+}
